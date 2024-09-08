@@ -28,7 +28,13 @@
             .title-word {
                 animation: color-animation 4s linear infinite;
             }
-
+            .mid {
+                display: flex;
+                justify-content: center; /* Căn giữa theo chiều ngang */
+                align-items: center; /* Căn giữa theo chiều dọc */
+                gap: 10px; /* Khoảng cách giữa các nút */
+                margin-top: 20px; /* Khoảng cách phía trên */
+            }
             .title-word-1 {
                 --color-1: #2c2525;
                 --color-2: #7c7b7b;
@@ -221,23 +227,43 @@
                     style="font-size: 15px; height: 40px"
                 />
             </div>
-            <div class="input-group">
+            <div class="">
                 <h3>Random Text Generator</h3>
-                <button
-                    id="randomButton"
-                    class="btn btn-primary"
-                    style="margin-top: 20px; margin-left: 10px; font-size: 15px"
-                >
-                    Generate Random Text
-                </button>
-                <span
-                    id="copyTextButton"
-                    class="input-group-addon btn"
-                    style="margin-top: 20px; margin-left: 10px; font-size: 15px"
-                    title="Click to copy"
-                >
-                    <i class="fa fa-clipboard" aria-hidden="true"></i>
-                </span>
+                <div class="mid">
+                    <button id="randomButton">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-arrow-counterclockwise"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"
+                            />
+                            <path
+                                d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"
+                            />
+                        </svg>
+                    </button>
+                    <button id="copyTextButton">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-copy"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
+                            />
+                        </svg>
+                    </button>
+                </div>
             </div>
             <div class="">
                 <div
