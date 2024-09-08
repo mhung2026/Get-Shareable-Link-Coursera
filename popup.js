@@ -671,7 +671,7 @@ window.onload = function () {
         "so that",
         "as",
         "so",
-        "THEREFORE",
+        "therefore",
     ];
 
     // Hàm tạo câu ngẫu nhiên
@@ -687,23 +687,21 @@ window.onload = function () {
     }
 
     // Hàm tạo đoạn văn bằng cách kết hợp nhiều câu ngẫu nhiên
+    function generateRandomText() {
+        let combinedText = "";
+        const numberOfSentences = 5; // Số lượng câu muốn tạo
+
+        for (let i = 0; i < numberOfSentences; i++) {
+            combinedText += createRandomSentence() + " ";
+        }
+
+        // Hiển thị đoạn văn kết hợp
+        document.getElementById("randomText").innerText = combinedText.trim();
+    }
+    generateRandomText();
     document
         .getElementById("randomButton")
-        .addEventListener("click", function () {
-            let combinedText = "";
-            const numberOfSentences = 5; // Số lượng câu muốn tạo
-
-            for (let i = 0; i < numberOfSentences; i++) {
-                combinedText += createRandomSentence() + " ";
-            }
-
-            // Hiển thị đoạn văn kết hợp
-            document.getElementById("randomText").innerText =
-                combinedText.trim();
-
-            // Hiển thị nút copy sau khi đoạn văn đã được sinh ra
-            document.getElementById("copyTextButton").style.display = "inline";
-        });
+        .addEventListener("click", generateRandomText);
 
     // Sao chép văn bản từ thẻ p#randomText
     function copyToClipboard(text) {
@@ -721,20 +719,21 @@ window.onload = function () {
         }, 1000);
     }
 
-    // Gán sự kiện cho nút copy
     document
         .getElementById("copyTextButton")
         .addEventListener("click", function () {
             const textToCopy = document.getElementById("randomText").innerText;
             copyToClipboard(textToCopy);
         });
+    document
+        .getElementById("copyButton")
+        .addEventListener("click", function () {
+            const shareLink = document.getElementById("shareLink");
+            shareLink.select();
+            document.execCommand("copy");
+            document.querySelector(".copied").style.display = "inline";
+            setTimeout(() => {
+                document.querySelector(".copied").style.display = "none";
+            }, 1000);
+        });
 };
-document.getElementById("copyButton").addEventListener("click", function () {
-    const shareLink = document.getElementById("shareLink");
-    shareLink.select();
-    document.execCommand("copy");
-    document.querySelector(".copied").style.display = "inline";
-    setTimeout(() => {
-        document.querySelector(".copied").style.display = "none";
-    }, 1000);
-});
