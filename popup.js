@@ -235,11 +235,13 @@ window.onload = function () {
                 combinedText.trim();
         });
 
-    // Sao chép link
-    function copyToClipboard(elem) {
-        var target = elem;
-        target.select();
+    function copyToClipboard(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
         document.execCommand("copy");
+        document.body.removeChild(textArea);
 
         // Hiển thị thông báo đã sao chép
         document.querySelector(".copied").style.display = "inline";
@@ -248,11 +250,12 @@ window.onload = function () {
         }, 1000);
     }
 
+    // Gán sự kiện cho nút copy
     document
-        .getElementById("copyButton")
+        .getElementById("copyTextButton")
         .addEventListener("click", function () {
-            const shareLink = document.getElementById("shareLink");
-            copyToClipboard(shareLink);
+            const textToCopy = document.getElementById("randomText").innerText;
+            copyToClipboard(textToCopy);
         });
 };
 
