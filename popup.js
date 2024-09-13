@@ -1520,7 +1520,6 @@ window.onload = function () {
         .getElementById("randomButton")
         .addEventListener("click", generateRandomText);
 
-    // Sao chép văn bản từ thẻ p#randomText
     function copyToClipboard(text) {
         const textArea = document.createElement("textarea");
         textArea.value = text;
@@ -1542,12 +1541,12 @@ window.onload = function () {
             const textToCopy = document.getElementById("randomText").innerText;
             copyToClipboard(textToCopy);
         });
-    document
-        .getElementById("randomButton")
-        .addEventListener("click", function () {
-            const textToCopy = document.getElementById("randomText").innerText;
-            copyToClipboard(textToCopy);
-        });
+    // document
+    //     .getElementById("randomButton")
+    //     .addEventListener("click", function () {
+    //         const textToCopy = document.getElementById("randomText").innerText;
+    //         copyToClipboard(textToCopy);
+    //     });
     document
         .getElementById("copyButton")
         .addEventListener("click", function () {

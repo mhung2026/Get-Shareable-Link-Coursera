@@ -28,13 +28,6 @@
             .title-word {
                 animation: color-animation 4s linear infinite;
             }
-            .mid {
-                display: flex;
-                justify-content: center; /* Căn giữa theo chiều ngang */
-                align-items: center; /* Căn giữa theo chiều dọc */
-                gap: 10px; /* Khoảng cách giữa các nút */
-                margin-top: 20px; /* Khoảng cách phía trên */
-            }
             .title-word-1 {
                 --color-1: #2c2525;
                 --color-2: #7c7b7b;
@@ -122,7 +115,7 @@
             }
             #copyTextButton {
                 cursor: pointer;
-                background: rgba(72, 154, 248, 0.705);
+                /* background: rgba(72, 154, 248, 0.705); */
             }
 
             #copyTarget {
@@ -179,14 +172,21 @@
                 padding-bottom: 10px;
             }
 
-            #copyButton {
-                border-radius: 3px 0 0 3px;
-            }
+            #copyButton,
+            #copyTextButton,
             #copyTextButton {
                 border-radius: 3px 0 0 3px;
             }
+            #randomButton,
             #copyTextButton {
-                border-radius: 3px 0 0 3px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+            }
+            #randomButton:focus,
+            #randomButton:active {
+                outline: none;
+                border: none;
             }
 
             .alert {
@@ -227,35 +227,41 @@
                     style="font-size: 15px; height: 40px"
                 />
             </div>
-            <div class="">
+            <div class="input-group">
                 <h3>Random Text Generator</h3>
-                <div class="mid">
+                <div>
                     <button id="randomButton">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
+                            width="20"
+                            height="20"
                             fill="currentColor"
-                            class="bi bi-arrow-counterclockwise"
-                            viewBox="0 0 16 16"
+                            class="bi bi-arrow-clockwise"
+                            viewBox="0 0 17 17"
                         >
                             <path
                                 fill-rule="evenodd"
-                                d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"
+                                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"
                             />
                             <path
-                                d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"
+                                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"
                             />
                         </svg>
                     </button>
                     <button id="copyTextButton">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
+                            width="20"
+                            height="20"
                             fill="currentColor"
                             class="bi bi-copy"
                             viewBox="0 0 16 16"
+                            style="
+                                border: none;
+                                outline: none;
+                                background-color: transparent;
+                                margin-bottom: 5px;
+                            "
                         >
                             <path
                                 fill-rule="evenodd"
@@ -265,7 +271,7 @@
                     </button>
                 </div>
             </div>
-            <div class="">
+            <div>
                 <div
                     id="randomTextContainer"
                     style="
@@ -278,8 +284,8 @@
                         background-color: #ffffff;
                         border-radius: 5px;
                         max-height: 200px;
-                        overflow: hidden; /* Ẩn phần tràn */
-                        text-overflow: ellipsis; /* Thêm dấu ... */
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     "
                 >
                     <p id="randomText" style="margin: 0"></p>

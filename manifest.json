@@ -1,6 +1,5 @@
 {
     "manifest_version": 2,
-
     "name": "Get Shareable Link",
     "description": "Get shareable link Coursera",
     "version": "1.0.1",
